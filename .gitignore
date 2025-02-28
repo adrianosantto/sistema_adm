@@ -1,0 +1,2 @@
+# Arquivos e diretorios que não devem ser enviados para Github
+/vendor/
