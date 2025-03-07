@@ -20,3 +20,31 @@ Criar o arquivo Composer.json com a instrução básica
 ```
 Composer init
 ```
+## Como usar o Github
+Baixar do Git
+´´´
+git clone --branch <branch_name> <repository_url>
+´´´
+
+Verificar a branch.
+´´´
+git branch
+´´´
+
+Baixar as atulizações.
+´´´
+git pull
+´´´
+Adicionar todos os arquivos modificado no staging
+
+´´´
+git add .
+´´´
+Commit: Documentar o que foi feito no ponto especifico do projeto
+´´´
+git commit -m "Descrição do commit"
+´´´
+Enviar os commits locais para o repositótio remoto
+´´´
+git push origin dev-master
+´´´

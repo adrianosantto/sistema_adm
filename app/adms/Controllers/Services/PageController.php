@@ -2,6 +2,8 @@
 
 namespace App\adms\Controllers\Services;
 
+use App\adms\Helpers\ClearUrl;
+
 /**
  * Recebe a URL e manipula.
  * @author Adriano <adrianosantto@gmail.com>
@@ -29,6 +31,9 @@ class PageController
             
 
             echo "Acessar o endereço: ". $this->url . "<br><br>";
+
+            $this->url = ClearUrl::clearUrl($this->url);
+           var_dump($this->url);
 
         }else {
             
