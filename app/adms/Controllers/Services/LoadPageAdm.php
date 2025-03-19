@@ -2,6 +2,8 @@
 
 namespace App\adms\Controllers\Services;
 
+use App\adms\Helpers\GenerateLog;
+
 class LoadPageAdm
 {
 
@@ -38,12 +40,20 @@ class LoadPageAdm
 
         //verificar de existe a página
         if (!$this->checkPageExists()) {
+            
+            //Chamar o método para salvar o log
+            GenerateLog::generateLog("error", "Página não encotrada.", ['pagina' => $this->urlController, 'parametro' => $this->urlParameter]);
 
             die("Página não encotrada");
         }
 
          //Verificar se a classe existe
          if(!$this->checkControllerExists()) {
+
+
+            //Chamar o método para salvar o log
+            GenerateLog::generateLog("error", "controller naum", ['pagina' => $this->urlController, 'parametro' => $this->urlParameter]);
+
             die("controller naum");
          }
 
@@ -126,6 +136,12 @@ class LoadPageAdm
             //Carregar metodo
             $classLoad->{"index"}($this->urlParameter);
         }else{
+
+
+            //Chamar o método para salvar o log
+            
+            GenerateLog::generateLog("error", "Método não encotrado", ['pagina' => $this->urlController, 'parametro' => $this->urlParameter]);            
+
             die("Método não encotrado");
         }
      }

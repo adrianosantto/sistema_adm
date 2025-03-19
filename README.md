@@ -15,11 +15,15 @@ Composer Install
 
 ## Sequencia para criar o projeto
 
-Criar o arquivo Composer.json com a instrução básica
-
+Criar o arquivo Composer.json com a instrução básica.
 ```
 Composer init
 ```
+Instalar as dependencias monolog, biblioteca php que permite criar arquivos de log
+``` 
+composer require monolog/monolog
+```
+
 ## Como usar o Github
 Baixar do Git
 ´´´

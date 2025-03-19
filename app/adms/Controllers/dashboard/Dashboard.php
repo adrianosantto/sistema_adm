@@ -2,7 +2,7 @@
 
 namespace App\adms\Controllers\dashboard;
 
-class dashboard
+class Dashboard
 {
    public function index()
    {
@@ -10,5 +10,3 @@ class dashboard
    }
 
 }
-
-//MINUTO 11:32 Manipular classe e parâmetro
