@@ -44,7 +44,8 @@ class LoadPageAdm
             //Chamar o método para salvar o log
             GenerateLog::generateLog("error", "Página não encotrada.", ['pagina' => $this->urlController, 'parametro' => $this->urlParameter]);
 
-            die("Página não encotrada");
+        
+            die("Erro 002: Por favor tente novamente. Caso o problema persista, entre em contato o administrador <a>{$_ENV['EMAIL_ADM']}</a>");
         }
 
          //Verificar se a classe existe
@@ -52,9 +53,9 @@ class LoadPageAdm
 
 
             //Chamar o método para salvar o log
-            GenerateLog::generateLog("error", "controller naum", ['pagina' => $this->urlController, 'parametro' => $this->urlParameter]);
+            GenerateLog::generateLog("error", "Não encontrou a controller", ['pagina' => $this->urlController, 'parametro' => $this->urlParameter]);
 
-            die("controller naum");
+            die("Erro 003: Por favor tente novamente. Caso o problema persista, entre em contato o administrador <a>{$_ENV['EMAIL_ADM']}</a>");
          }
 
     }
@@ -133,8 +134,12 @@ class LoadPageAdm
         $classLoad = new $this->classLoad();
         if (method_exists($classLoad, "index")) {
 
+
+
             //Carregar metodo
             $classLoad->{"index"}($this->urlParameter);
+
+            GenerateLog::generateLog("info", "Página acessada", ['pagina' => $this->urlController, 'parametro' => $this->urlParameter]);
         }else{
 
 
@@ -142,7 +147,7 @@ class LoadPageAdm
             
             GenerateLog::generateLog("error", "Método não encotrado", ['pagina' => $this->urlController, 'parametro' => $this->urlParameter]);            
 
-            die("Método não encotrado");
+            die("Erro 004: Por favor tente novamente. Caso o problema persista, entre em contato o administrador <a>{$_ENV['EMAIL_ADM']}</a>");
         }
      }
 

@@ -5,6 +5,10 @@ use App\adms\Controllers\Services\PageController;
 
  require './vendor/autoload.php';
 
+ //Instanaciar a dependencia de variáveis de ambiente
+$dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__);
+$dotenv->load();
+
  //Instanciar a classe PageController, responsável em tratar a URL
  $url = new PageController();
  

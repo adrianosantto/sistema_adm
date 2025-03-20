@@ -1,54 +1,82 @@
 ## Requisitos
 
-* PHP 8.2 ou superior
-* MySQL 8.0 ou Superior
-* Composer
+* PHP 8.3 ou superior;
+* Apache;
+* rewrite_module ativo no Apache;
+* MySQL 8.0 ou superior;
+* Composer;
 
-## Rodar o projeto baixado
+## Como rodar o projeto baixado
 
-Instlar as dependências.
+Duplicar o arquivo ".env.example" e renomear para ".env".<br>
+Alterar no arquivo .env as credenciais do banco de dados.<br>
+
+Instalar as dependências.
 ```
-Composer Install
-``` 
-
+composer install
+```
 
 
 ## Sequencia para criar o projeto
+Criar o arquivo composer.json com a instrução básica.
+```
+composer init
+```
 
-Criar o arquivo Composer.json com a instrução básica.
+Instalar a dependencias Monolog, biblioteca PHP que permite criar arquivo de log.
 ```
-Composer init
-```
-Instalar as dependencias monolog, biblioteca php que permite criar arquivos de log
-``` 
 composer require monolog/monolog
 ```
 
-## Como usar o Github
-Baixar do Git
-´´´
-git clone --branch <branch_name> <repository_url>
-´´´
+Instalar a biblioteca gerenciar variáveis de ambiente.
+```
+composer require vlucas/phpdotenv
+```
+
+## Como usar o GitHub
+Baixar os arquivos do Git.
+```
+git clone --branch <branch_name> <repository_url> .
+```
+
+Definir as configurações do usuário.
+```
+git config --local user.name Cesar
+```
+```
+git config --local user.email cesar@meuemail.com.br
+```
 
 Verificar a branch.
-´´´
-git branch
-´´´
+```
+git branch 
+```
 
-Baixar as atulizações.
-´´´
+Baixar as atualizações.
+```
 git pull
-´´´
-Adicionar todos os arquivos modificado no staging
+```
 
-´´´
+Adicionar todos os arquivos modificados no staging area - área de preparação.
+```
 git add .
-´´´
-Commit: Documentar o que foi feito no ponto especifico do projeto
-´´´
+```
+
+commit representa um conjunto de alterações em um ponto específico da história do seu projeto, registra apenas as alterações adicionadas ao índice de preparação.
+O comando -m permite que insira a mensagem de commit diretamente na linha de comando.
+```
 git commit -m "Descrição do commit"
-´´´
-Enviar os commits locais para o repositótio remoto
-´´´
+```
+
+Enviar os commits locais, para um repositório remoto.
+```
+git push <remote> <branch>
 git push origin dev-master
-´´´
+```
+
+## Lista de erros
+001 - DbConnection.php - Erro de conexão com o banco de dados
+002 - LoadPageAdm.php - Não encontrou a página
+003 - LoadPageAdm.php - Não encontrou a controller
+004 - LoadPageAdm.php - Não encontrou o método
+
